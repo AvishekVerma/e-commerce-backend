@@ -30,15 +30,15 @@ public class Product {
 	private String description;
 	
 	@Column(name="price")
-	private String price;
+	private int price;
 	
 	@Column(name="discounted_price")
-	private String discountedPrice;
+	private int discountedPrice;
 	
-	@Column(name="discount_present")
-	private String discountPresent;
+
+	private int discount;
 	
-	private String quantity;
+	private int quantity;
 	
 	private String brand;
 	
@@ -71,16 +71,16 @@ public class Product {
 		super();
 	}
 
-	public Product(Long id, String title, String description, String price, String discountedPrice,
-			String discountPresent, String quantity, String brand, String color, String imageUrl, Set<Size> sizes,
-			List<Rating> ratings, List<Review> reviews, int numRatings, Category category, LocalDateTime createdAt) {
+	public Product(Long id, String title, String description, int price, int discountedPrice, int discount,
+			int quantity, String brand, String color, String imageUrl, Set<Size> sizes, List<Rating> ratings,
+			List<Review> reviews, int numRatings, Category category, LocalDateTime createdAt) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.discountedPrice = discountedPrice;
-		this.discountPresent = discountPresent;
+		this.discount = discount;
 		this.quantity = quantity;
 		this.brand = brand;
 		this.color = color;
@@ -117,35 +117,35 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	public String getDiscountedPrice() {
+	public int getDiscountedPrice() {
 		return discountedPrice;
 	}
 
-	public void setDiscountedPrice(String discountedPrice) {
+	public void setDiscountedPrice(int discountedPrice) {
 		this.discountedPrice = discountedPrice;
 	}
 
-	public String getDiscountPresent() {
-		return discountPresent;
+	public int getDiscount() {
+		return discount;
 	}
 
-	public void setDiscountPresent(String discountPresent) {
-		this.discountPresent = discountPresent;
+	public void setDiscount(int discount) {
+		this.discount = discount;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -220,5 +220,5 @@ public class Product {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-
+	
 }
