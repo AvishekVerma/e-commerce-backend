@@ -73,6 +73,4 @@ public class Category {
 		this.level = level;
 	}
 	
-	
-
 }

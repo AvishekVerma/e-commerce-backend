@@ -45,7 +45,6 @@ public class Address {
 	public Address() {
 		super();
 	}
-	
 
 	public Address(Long id, String firstName, String lastName, String mobile, String streetAddress, String city,
 			String state, String zipCode, User user) {
@@ -60,7 +59,6 @@ public class Address {
 		this.zipCode = zipCode;
 		this.user = user;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -133,6 +131,5 @@ public class Address {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
 	
 }

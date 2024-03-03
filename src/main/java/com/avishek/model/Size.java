@@ -4,20 +4,14 @@ public class Size {
 
 	private String name;
 	private int quantiy;
-	
-	
 	public Size() {
 		super();
 	}
-	
 	public Size(String name, int quantiy) {
 		super();
 		this.name = name;
 		this.quantiy = quantiy;
 	}
-
-
-
 	public String getName() {
 		return name;
 	}
@@ -30,6 +24,5 @@ public class Size {
 	public void setQuantiy(int quantiy) {
 		this.quantiy = quantiy;
 	}
-	
 	
 }

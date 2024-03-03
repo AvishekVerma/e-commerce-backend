@@ -4,9 +4,17 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class PaymentInformation {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long Id;
+	
 
 	@Column(name="cardholder_name")
 	private String cardHolderName;
@@ -23,12 +31,21 @@ public class PaymentInformation {
 		super();
 	}
 
-	public PaymentInformation(String cardHolderName, String cardNumber, LocalDate expirationDate, String cvv) {
+	public PaymentInformation(Long id, String cardHolderName, String cardNumber, LocalDate expirationDate, String cvv) {
 		super();
+		Id = id;
 		this.cardHolderName = cardHolderName;
 		this.cardNumber = cardNumber;
 		this.expirationDate = expirationDate;
 		this.cvv = cvv;
+	}
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public String getCardHolderName() {
@@ -62,6 +79,5 @@ public class PaymentInformation {
 	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
-	
-	
+
 }
