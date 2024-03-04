@@ -2,6 +2,7 @@ package com.avishek.model;
 
 import java.time.LocalDateTime;
 
+import com.avishek.service.UserService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -57,8 +58,8 @@ public class Rating {
 		return user;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(User user2) {
+		this.user = user2;
 	}
 
 	public Product getProduct() {

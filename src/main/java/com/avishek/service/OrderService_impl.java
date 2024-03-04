@@ -9,17 +9,28 @@ import com.avishek.exception.OrderException;
 import com.avishek.model.Address;
 import com.avishek.model.OrderNew;
 import com.avishek.model.User;
+import com.avishek.repo.AddressRepo;
 import com.avishek.repo.CartRepo;
+import com.avishek.repo.OrderItemRepo;
+import com.avishek.repo.OrderRepo;
+import com.avishek.repo.UserRepo;
 
 @Service
 public class OrderService_impl implements OrderService {
 	
 	@Autowired
-	private CartRepo cartRepo;
+	private OrderRepo orderRepo;
 	@Autowired
-	private CartService cartItemService;
+	private CartService cartService;
 	@Autowired
-	private ProductService productService;
+	private AddressRepo addressRepo;
+	@Autowired
+	private UserRepo userRepo;
+	@Autowired
+	private OrderItemRepo orderItemRepo;
+	@Autowired
+	private OrderItemService orderItemService;
+	
 
 	@Override
 	public OrderNew createOrder(User user, Address shipingAddress) {
@@ -29,7 +40,6 @@ public class OrderService_impl implements OrderService {
 
 	@Override
 	public OrderNew findOrderById(Long orderId) throws OrderException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

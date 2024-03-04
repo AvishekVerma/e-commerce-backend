@@ -8,6 +8,7 @@ target/
 .mvn/
 mvnw
 mvnw.cmd
+.metadata
 
 ### STS ###
 .apt_generated

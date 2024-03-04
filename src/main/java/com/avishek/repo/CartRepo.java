@@ -8,6 +8,6 @@ import com.avishek.model.Cart;
 
 public interface CartRepo extends JpaRepository<Cart, Long> {
 
-//	@Query("select c from cart c where c.user_id=:userId")
+	@Query("select c from Cart c where c.user.id=:userId")
 	public Cart findByUserId(@Param("userId") Long userId);
 }
