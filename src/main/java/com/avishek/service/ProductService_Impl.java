@@ -106,7 +106,7 @@ public class ProductService_Impl implements ProductService {
 	@Override
 	public Product findProductById(Long id) throws ProductException {
 
-		Optional<Product> optional = productRepo.findById(id);
+		Optional<Product> optional = Optional.ofNullable(productRepo.findById(id).get());
 
 		if (optional.isPresent()) {
 			return optional.get();
@@ -155,6 +155,17 @@ public class ProductService_Impl implements ProductService {
 		Page<Product> filteredProduct = new PageImpl<Product>(pageContent, pageble, products.size());
 
 		return filteredProduct;
+	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		return productRepo.findAll();
+	}
+
+	@Override
+	public List<Product> recentlyAddedProduct() {
+
+		return productRepo.findTop10ByOrderByCreatedAtDesc();
 	}
 
 }

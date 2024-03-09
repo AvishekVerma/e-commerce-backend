@@ -17,43 +17,42 @@ import com.avishek.model.Product;
 import com.avishek.service.ProductService;
 
 @RestController
-@RequestMapping("/api")
-public class ProductController {
+@RequestMapping("/api/new")
+public class UserProductController {
 	
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping("/produts")
-	public ResponseEntity<Page<Product>> findProductByCategory(
-			@RequestParam String category, @RequestParam List<String>color, @RequestParam List<String> size, 
-			@RequestParam Integer minPrice, @RequestParam Integer maxPrice,@RequestParam Integer minDiscount, 
-			@RequestParam String sort, @RequestParam String stock, @RequestParam Integer pageNumber, 
-		 	@RequestParam Integer pageSize
-			){
+	@GetMapping("/products")
+	public ResponseEntity<Page<Product>> findProductByCategoryHandler(@RequestParam String category,
+			@RequestParam List<String>color,@RequestParam List<String> size,@RequestParam Integer minPrice,
+			@RequestParam Integer maxPrice, @RequestParam Integer minDiscount, @RequestParam String sort, 
+			@RequestParam String stock, @RequestParam Integer pageNumber,@RequestParam Integer pageSize){
+
 		
-		Page<Product> res = productService.getAllProduct(
-				category, color, size, minPrice, maxPrice, 
-				minDiscount, sort, stock, pageNumber, pageSize);
+		Page<Product> res= productService.getAllProduct(category, color, size, minPrice, maxPrice, minDiscount, sort,stock,pageNumber,pageSize);
 		
+		System.out.println("complete products");
 		return new ResponseEntity<>(res,HttpStatus.OK);
+		
 	}
 	
+
+	
 	@GetMapping("/products/id/{productId}")
-	public ResponseEntity<Product> findProductById(@PathVariable Long productId) throws ProductException{
+	public ResponseEntity<Product> findProductByIdHandler(@PathVariable Long productId) throws ProductException{
 		
 		Product product=productService.findProductById(productId);
 		
-		return new ResponseEntity<Product>(product,HttpStatus.OK);
+		return new ResponseEntity<Product>(product,HttpStatus.ACCEPTED);
 	}
-	
+
 	@GetMapping("/products/search")
-	public ResponseEntity<List<Product>> searchProduct(@RequestParam String q){
+	public ResponseEntity<List<Product>> searchProductHandler(@RequestParam String q){
 		
 		List<Product> products=productService.searchProduct(q);
 		
 		return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
 		
 	}
-	
-
 }

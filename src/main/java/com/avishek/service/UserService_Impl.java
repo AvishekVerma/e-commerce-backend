@@ -57,4 +57,10 @@ public class UserService_Impl implements UserService {
 		return user;
 	}
 
+	@Override
+	public List<User> findAllUsers() {
+
+		return userRepo.findAllByOrderByCreatedAtDesc();
+	}
+
 }

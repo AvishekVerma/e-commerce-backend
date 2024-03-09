@@ -10,7 +10,6 @@ public class CreateProductRequest {
 	private String title;
 	private String description;
 	private int price;
-	
 	private int discountedPrice;
 	private int discount;
 	private int quantity;

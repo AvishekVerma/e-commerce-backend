@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.avishek.exception.ProductException;
 import com.avishek.model.Product;
@@ -13,6 +14,7 @@ import com.avishek.repo.ProductRepo;
 import com.avishek.repo.ReviewRepo;
 import com.avishek.request.ReviewRequest;
 
+@Service
 public class ReviewService_Impl implements ReviewService {
 	
 	@Autowired

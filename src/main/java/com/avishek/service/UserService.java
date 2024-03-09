@@ -1,5 +1,7 @@
 package com.avishek.service;
 
+import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.avishek.exception.UserException;
@@ -12,6 +14,8 @@ public interface UserService {
 	public User findUserById(Long userId)throws Exception;
 	
 	public User findUserProfileByJwt(String jwt) throws UserException; 
+	
+	public List<User> findAllUsers();
 	
 	
 	

@@ -5,6 +5,7 @@ import com.avishek.exception.UserException;
 import com.avishek.model.Cart;
 import com.avishek.model.CartItem;
 import com.avishek.model.Product;
+import com.avishek.request.AddItemRequest;
 
 public interface CartItemService {
 
@@ -17,4 +18,5 @@ public interface CartItemService {
 	public void removeCartItem(Long userId, Long cartItemId) throws CartItemException, UserException;
 	
 	public CartItem findCartItemById(Long cartItemId)throws CartItemException; 
+	
 }

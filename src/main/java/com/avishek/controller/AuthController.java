@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.avishek.AppConfig.JwtProvider;
 import com.avishek.exception.UserException;
+import com.avishek.model.Cart;
 import com.avishek.model.User;
 import com.avishek.repo.UserRepo;
 import com.avishek.request.LoginRequest;
 import com.avishek.response.AuthResponse;
+import com.avishek.service.CartService;
 import com.avishek.service.CustomUserDetails;
 
 @RestController
@@ -34,6 +36,8 @@ public class AuthController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private CustomUserDetails customUserDetails;
+	@Autowired
+	private CartService cartService;
 
 	@PostMapping("/signup")
 	public ResponseEntity<AuthResponse> createUser(@RequestBody User user) throws UserException{
@@ -57,6 +61,7 @@ public class AuthController {
 		createdUser.setLastName(lastName);
 		
 		User savedUser = userRepo.save(createdUser);
+		Cart cart = cartService.createUser(savedUser);
 		
 		Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
 		SecurityContextHolder.getContext().setAuthentication(authentication);

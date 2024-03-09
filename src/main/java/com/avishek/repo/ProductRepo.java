@@ -31,4 +31,5 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 			@Param("sort")String sort
 			);
 
+	public List<Product> findTop10ByOrderByCreatedAtDesc();
 }
