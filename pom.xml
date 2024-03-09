@@ -77,6 +77,13 @@
 	    	<artifactId>json</artifactId>
 	    	<version>20210307</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.razorpay/razorpay-java -->
+		<dependency>
+		    <groupId>com.razorpay</groupId>
+		    <artifactId>razorpay-java</artifactId>
+		    <version>1.4.5</version>
+		</dependency>
+		
       
 	</dependencies>
 
